@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrack</title>
+    <link rel="stylesheet" href="sign-login_sheet/stylesheet.css">
+</head>
+<body>
+
+    <div id="intro-overlay">
+        <img src="img_rsrcs/update2.png" alt="pill icon" class="center-pill">
+    </div>
+    <div class="upper-container">
+        <h1>MediTrack</h1>
+    </div>
+
+    <div class="middle-container">
+     <img src="wsr_shake.jpg" alt="greeting" class="greeting-image">
+     <div class="mid-text">
+        <p>Your medical assistant</p>
+        <p>We are devoted to making your recovery journey quick and simple<br>
+        by providing you with a platform to track your medication intake</p>
+        </p>
+     </div>   
+        
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        function hideOverlay() {
+            document.getElementById('intro-overlay').classList.add('hidden');
+
+            setTimeout(() =>{
+                document.getElementById('intro-overlay') .style.display = 'none';
+            }, 900)
+        }
+
+
+     window.addEventListener('scroll', hideOverlay, { once: true});
+     document.getElementById('intro-overlay').addEventListener('click', hideOverlay);   
+
+    })
+</script>
+
+    
+</body>
+</html>

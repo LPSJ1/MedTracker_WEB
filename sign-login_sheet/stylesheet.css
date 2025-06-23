@@ -1,0 +1,230 @@
+body {
+    background-color: #111827;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    min-height:100vh;
+    margin: 0;
+    flex-direction: column;
+   
+
+}
+
+
+
+  
+
+
+
+
+
+.form-container{
+        background:#fff;
+        padding: 35px 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 250px;
+        width:90%;
+       
+
+}
+
+.top-left-pill{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width: 100px;
+    height: auto;
+    z-index: 10;
+}
+        
+
+
+
+
+/*#main-heading, h2{
+    font-family: 'Playfair Display', serif;
+}*/
+
+
+.rainbow-glow {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, 
+    
+    #ffb347 0%, 
+    #ffe600 10%, 
+    #a8ff60 20%, 
+    #00ff94 30%, 
+    #00cfff 40%, 
+    #7928ca 50%,
+    #ff0080 60%, 
+    #ff8c00 70%,
+    #ffb347 80%,
+    #ffe600 90%,
+    #a8ff60 100%,
+    #ffb347 110%, 
+    #ffe600 120%, 
+    #a8ff60 130%, 
+    #00ff94 140%, 
+    #00cfff 150%, 
+    #7928ca 160%,
+    #ff0080 170%, 
+    #ff8c00 180%,
+    #ffb347 190%,
+    #ffe600 200%
+
+
+    );
+
+    background-size: 3400% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-glow 8s linear infinite;
+    text-shadow:
+        0 0 2px #fff,
+        0 0 4px #ffe600,
+        0 0 4px #00ff94,
+        /*0 0 4px #00cfff,
+        0 0 4px #7928ca,
+        0 0 4px #ff0080,
+        0 0 4px #ff8c00;*/
+
+}
+
+@keyframes rainbow-glow {
+    0% {background-position: 0% 50%}
+    100% {background-position: 100% 50%}
+}
+
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"],
+.form-container input[type="tel"] {
+    border:none;
+    border-bottom:1px solid #000;
+    background: transparent #000;
+    outline:none;
+    padding: 6px 3px;
+    width: 100%;
+    font-size: 1em;
+    margin-bottom:20px;
+    box-sizing: border-box;
+}
+
+.form-container form{
+    display: flex;
+    flex-direction:column;
+
+}
+
+.form-container button{
+
+font-family:'Playfair Display';
+justify-content:center;
+align-items:center;
+background-color:#bef0f0;
+color:#000;
+border:none;
+padding:10px 24px;
+border-radius:12px;
+cursor: pointer;
+transition:background 0.1s, color 0.5s;
+align-self:center;
+
+}
+
+.form-container button:hover{
+    background-color:#da7c7c;
+    color:#fff;
+}
+
+.upper-container{
+    background-color:#fff;
+    width:100%;
+    height:10vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.middle-container{
+    background-color:#bef0f0;
+    width:100%;
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    gap:40px
+}
+
+.greeting-image{
+    width: 400px;;
+    height:500px;
+    object-fit: cover;
+
+}
+
+.middle-text{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:left;
+}
+
+.logo-img{
+    width:400px;
+    height:auto;
+    display: block;
+    margin: 0 auto 10px auto;
+
+}
+
+
+#star-canvas{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#intro-overlay {
+    position:fixed;
+    top:0; left: 0; right: 0; bottom: 0;
+    width:100vw;
+    height:100vh;
+    background: #111827;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    z-index: 9999;
+    transition: opacity 0.8s ease;
+
+}
+
+#intro-overlay.hidden{
+    opacity:0;
+    pointer-events: none;
+}
+
+.center-pill{
+    width: 120px;
+    height:auto;
+    filter: drop-shadow(0 0 40px #ffe600) drop-shadow(0 0 80px #00cfff);
+    animation: pill-glow 2s infinite alternate;
+}
+
+@keyframes pill-glow{
+    0%{filter: drop-shadow(0 0 20px #ffe600) drop-shadow(0 0 40px #00cfff);}
+    100% { filter: drop-shadow(0 0 60px #ffe600) drop-shadow(0 0 120px #00cfff);}
+}

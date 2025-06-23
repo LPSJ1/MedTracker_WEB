@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New</title>
+  <link rel="stylesheet" href="add_med.css" />
+
+  
+</head>
+
+<body>
+  
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Add New Medication</h2>
+      
+      <form class="medication-form">
+        <label>Medication Name
+          <input type="text" placeholder="e.g. panadol" />
+        </label>
+
+        <div class="row">
+          <label>Dosage
+            <input type="text" placeholder="e.g. 1 tablet" />
+          </label>
+          <label>Frequency
+            <input type="text" placeholder="e.g. Daily" />
+          </label>
+        </div>
+
+        <div class="row">
+          <label>Start Date
+            <input type="date" value="2025-06-08" />
+          </label>
+          <label>End Date
+            <input type="date" value="2025-06-08"/>
+          </label>
+        </div>
+        
+
+        <label Times>
+          <input type="time" />
+          <button type="button" class="add-time-btn">Add Time</button>
+        </label>
+
+        <label>Special Instructions
+          <textarea placeholder="e.g. Take with food"></textarea>
+        </label>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

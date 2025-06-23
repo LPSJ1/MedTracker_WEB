@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTracker Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="medtracker.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+</style>
+</head>
+
+<body>
+    <header>
+        <h1>MedTracker</h1>
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Medications</a>
+            <a href="#" id="history-link">History</a>
+        </nav>
+        <button class="btn-add" id="add-medication-btn">+ Add Medication</button>
+
+    </header>
+
+    <div class="container">
+        <h2>Medication Tracker</h2>
+         <p>keep track of your medications and never miss a dose</p>
+
+         <div class="tabs">
+            <button class="tab-button" id="today-tab">Today's Schedule</button>
+           <!-- <button class="tab-link"> + My Medications</button>-->
+            <button class="tab-link" id="history-tab">History</button>
+         </div>
+
+         <div id="content">
+            <h3>Today's Medications</h3>
+            <div class="medications">
+                <div class="med-card">
+                    <h3>Asprin</h3>
+                    <p>1 tablet · 8.00 AM </p>
+                    <p>Take with food</p>
+                    <span class="missed">Missed</span>
+                </div>
+                <div class="med-card">
+                    <h3>Vitamin D</h3>
+                    <p>1 capsule · 9.00 AM </p>
+                    <p>Take in the morning</p>
+                </div>
+            </div>
+
+            <h3>Upcoming Doses</h3>
+            <div class="upcoming">
+                <div class="upcoming-card">
+                <p>No upcoming medications in the next 24 hours.</p>
+            </div>
+            </div>
+         </div>
+    </div>
+
+    <script src="medtracker.js"></script>
+        
+    <script>
+document.getElementById('history-tab').addEventListener('click', function() {
+    window.location.href = 'med_his.html';
+});
+</script>
+
+<script>
+document.getElementById('add-medication-btn').addEventListener('click', function() {
+    window.location.href = 'add_med.html';
+});
+</script>
+
+
+</body>
+</html>

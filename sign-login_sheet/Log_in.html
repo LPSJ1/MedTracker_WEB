@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medtrack</title>
+    <meta name="description" content="MedTrack - Your personal medication tracker">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png/jpeg" href="img_rsrcs/update2_icon.png" alt="pill icon" class="logo-img">
+</head>
+<body>
+    <a href="../../index.html">
+     <img src="../../img_rsrcs/update2.png" alt="pill icon" class="top-left-pill">
+    </a>
+    <canvas id="star-canvas"></canvas>
+
+    <h1 id="main-heading" class="rainbow-glow">MedTrack</h1>
+
+    <div class="form-container">
+        <h2>Login</h2>
+    <form id="login-form" action="/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit" >Login</button>
+
+     <p>Don't have an account? <br><a href="sign_up.html">Sign up</a> </p>
+    </form>
+
+    <script>
+      document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent actual form submission
+    window.location.href = "../../med_dash.html"; // Redirect to dashboard
+});  
+    </script>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy;ALL RIGHTS RESERVED</p>
+    </div>
+
+
+<script src="motion.js"></script>    
+</body>
+</html>

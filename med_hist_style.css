@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 60px;
+    background: lab(91.49% -15.84 -5.25);
+  }
+  
+  header {
+    background: #bef0f0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  h2 {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .date-filter {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+  
+  .date-filter input,
+  .date-filter button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .history-entry {
+    padding: 1rem;
+  }
+  
+  .entry {
+    background: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .status.taken {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status.missed {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ccc;
+    padding: 0.5rem 0;
+  }
+  
+  .bottom-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+  }
+  
+  .bottom-nav .active {
+    font-weight: bold;
+  }
+  

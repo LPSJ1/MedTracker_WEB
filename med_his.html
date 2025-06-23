@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medication History</title>
+  <link rel="stylesheet" href="med_hist_style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Medication Tracker</h1>
+    <button class="close-btn">X</button>
+  </header>
+
+  <main>
+    <h2>Medication History</h2>
+    
+    <div class="date-filter">
+      <input type="date" value="2025-01-01">
+      <input type="date" value="2025-06-06">
+      <button>Filter</button>
+    </div>
+
+    <section class="history-entry">
+      <div class="entry">
+        <div class="left">
+          <strong>Paracetamol</strong>
+          <p>June 6, 2025 – 8:00 AM</p>
+          <p>Dosage: 500mg</p>
+          <p>Note: Took with breakfast</p>
+        </div>
+        <div class="status taken">✓ Taken</div>
+      </div>
+
+      <div class="entry">
+        <div class="left">
+          <strong>Ibuprofen</strong>
+          <p>June 5, 2025 – 8:00 PM</p>
+          <p>Dosage: 200mg</p>
+          <p>Note: Forgot to take</p>
+        </div>
+        <div class="status missed">✗ Missed</div>
+      </div>
+    </section>
+  </main>
+
+<script>
+document.getElementById('history-tab').addEventListener('click', function() {
+    window.location.href = 'med_his.html';
+});
+</script>
+</body>
+</html>
