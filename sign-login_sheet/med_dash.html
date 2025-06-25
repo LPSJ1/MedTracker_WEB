@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTracker Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="med_dash.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="logo-wrapper">
+        <h1>MedTracker</h1>
+        <img class ="TakeMeds1" src="../img_rsrcs/TakeMeds1.jpeg" alt="TakeMeds1" />
+    </div>
+    <button class="btn-add" id="add-medication-btn">+ Add Medication</button>
+
+</header>
+
+<div class="container">
+    <div class="med-sticker">
+        <img class ="sticker" src="../img_rsrcs/sticker.jpeg" alt="sticker" >
+    </div>
+
+    <div class="page-header">
+        <h2>Medication Tracker</h2>
+        <p>keep track of your medications and never miss a dose</p>
+    </div>
+
+
+
+    <div class="tabs">
+        <button class="tab-button" id="today-tab">Today's Schedule</button>
+        <button class="tab-link" id="history-tab">History</button>
+    </div>
+
+    <div id="content">
+        <h3>Today's Medications</h3>
+
+    </div>
+    <footer class="footer-quote">
+        <p> Eat Healthy. Hydrate. Move. Sleep. Smile</p>
+    </footer>
+
+</div>
+
+<script src="med_dash.js"></script>
+
+<!-- Add Medication Modal -->
+<div id="add-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2>Add New Medication</h2>
+        <form id="medication-form">
+            <label>Medication Name
+                <input type="text" id="med-name" placeholder="e.g. Panadol" required />
+            </label>
+
+            <div class="row">
+                <label>Dosage
+                    <input type="text" id="dosage" placeholder="e.g. 1 tablet" required />
+                </label>
+                <label>Frequency
+                    <input type="text" id="frequency" placeholder="e.g. Daily" required />
+                </label>
+            </div>
+
+            <label>Time
+                <input type="time" id="time" required />
+            </label>
+
+            <label>Special Instructions
+                <textarea id="instructions" placeholder="e.g. Take with food"></textarea>
+            </label>
+
+            <button type="submit" class="btn-add">Save Medication</button>
+        </form>
+    </div>
+</div>
+
+
+
+</body>
+</html>
