@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+.container {
+  min-height: 100vh;
+  background: #111827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:flex-start;
+  position:relative;
+}
+
+.starCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.topLeftPill {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: auto;
+  z-index: 10;
+}
+
+.upperContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, 
+    #ffb347 0%, #ffe600 10%, #a8ff60 20%, #00ff94 30%, #00cfff 40%, #7928ca 50%,
+    #ff0080 60%, #ff8c00 70%, #ffb347 80%, #ffe600 90%, #a8ff60 100%,
+    #ffb347 110%, #ffe600 120%, #a8ff60 130%, #00ff94 140%, #00cfff 150%, #7928ca 160%,
+    #ff0080 170%, #ff8c00 180%, #ffb347 190%, #ffe600 200%
+  );
+  background-size: 3400% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow-glow 8s linear infinite;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #ffe600,
+    0 0 4px #00ff94;
+}
+
+@keyframes rainbow-glow {
+  0% {background-position: 0% 50%}
+  100% {background-position: 100% 50%}
+}
+
+.formContainer {
+  background: #fff;;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+}
+
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formContainer label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.formContainer input {
+  background:transparent;
+  border: none;
+  border-bottom: 2px solid #111827;
+  color: #111827;
+  font-size: 1.1rem;
+  padding: 12px 8px;
+  margin-bottom:1.5rem;
+  width:100%;
+  outline: none;
+  font-family: 'Playfair Display', serif;
+}
+
+.formContiner button {
+  background-color: #00cfff;
+  color: #111827;
+  font-size: 1.2rem;
+  font-family:'Playfair Display', serif;
+  font-weight: bold;
+  border: none;
+  padding: 12px 0;
+  border-radius: 18px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  width: 60%;
+  transition: background 0.2s;
+  display: block;
+  align-self: center;
+}
+
+.formContainer button:hover {
+  background-color: #ffd966;
+  color: #111827;
+}
+
+.formContainer p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.starCanvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
