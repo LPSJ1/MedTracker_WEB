@@ -4,6 +4,7 @@ import styles from "./login.module.css";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 import { startStarAnimation } from "./starMotion";
+import Link from "next/link";
 
 export default function Login() {
     const router = useRouter();
@@ -61,7 +62,7 @@ export default function Login() {
                 <button type="submit">Login</button>
                 <p>
                    Don't have an account? <br />
-                    <a href="/signup">Sign up</a>
+                    <Link href="/signup">Sign up</Link>
                 </p>
 
 
