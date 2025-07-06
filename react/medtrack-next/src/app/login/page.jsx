@@ -5,6 +5,7 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 import { startStarAnimation } from "./starMotion";
 import Link from "next/link";
+import {signIn} from "next-auth/react";
 
 export default function Login() {
     const router = useRouter();
@@ -17,22 +18,22 @@ export default function Login() {
         return cleanup;
     },  []);
   
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        fetch("/api/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json"},
-            body: JSON.stringify({email, password})
-        })
-        .then(res => {
-            if (res.ok) {
+        const result = await signIn("credentials", {
+            redirect: false,
+            email,
+            password,
+            
+        });
+            if (result.ok) {
                 router.push("/dashboard"); 
             } else {
                 alert("Failed Login.check your credentials.");
             }
-        })
-    }
+        }
+    
 
     return (
         <div className={styles.container}>
@@ -82,5 +83,4 @@ export default function Login() {
 
         </div>
     )
-
 }
