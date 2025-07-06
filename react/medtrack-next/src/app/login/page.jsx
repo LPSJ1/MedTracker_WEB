@@ -1,6 +1,6 @@
 "use client";
 import {useState, useRef, useEffect} from "react";
-import styles from "./login.module.css";
+import styles from "../login/login.module.css";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 import { startStarAnimation } from "./starMotion";
@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Login() {
     const router = useRouter();
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const canvasRef = useRef(null);
 
@@ -20,7 +20,18 @@ export default function Login() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        router.push("/dashboard");
+        fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify({email, password})
+        })
+        .then(res => {
+            if (res.ok) {
+                router.push("/dashboard"); 
+            } else {
+                alert("Failed Login.check your credentials.");
+            }
+        })
     }
 
     return (
@@ -43,12 +54,12 @@ export default function Login() {
         <div className={styles.formContainer}>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="email">Email:</label>
                 <input
-                    type="text"
-                    id="username"
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                     required
                 />
                 <label htmlFor="password">Password</label>

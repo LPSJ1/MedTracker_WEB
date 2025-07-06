@@ -1,4 +1,4 @@
-.modal-overlay {
+.modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,12 +11,13 @@
     z-index: 999;
 }
 
-.modal-content {
+.modalContent {
     background: #fff;
     padding: 2rem;
     border-radius: 8px;
     width: 400px;
     position: relative;
+    color: #222;
 }
 
 .close {
@@ -27,21 +28,30 @@
     cursor: pointer;
 }
 
-.medication-form label {
+.medicationForm label {
     display: block;
     margin-bottom: 1rem;
+    color: #222;
+    font-weight: 500;
 }
 
-.medication-form input,
-.medication-form textarea {
+.medicationForm input,
+.medicationForm textarea {
     width: 100%;
     padding: 0.5rem;
     margin-top: 0.25rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    color: #222;
+    background: #fff;
 }
 
-.btn-add {
+.medicationForm input::placeholder,
+.medicationForm textarea::placeholder {
+    color: #bbb;
+}
+
+.btnAdd {
     background-color: #95cece;
     color: white;
     border: none;
@@ -49,4 +59,11 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btnAdd:hover {
+    background-color: #7dbcbc;
 }
