@@ -16,6 +16,12 @@ export default function Dashboard() {
 
 
   console.log("Session:", session, "Status:", status);
+  useEffect(() => {
+    console.log("Medications array:", medications);
+    medications.forEach((med, idx) => {
+      console.log(`Medicatoin ${idx}:`, med);
+    });
+  }, [medications]);
 
 
 {/*Browser notifications*/}
@@ -30,6 +36,8 @@ useEffect ( () => {
 
 {/*To call notification*/}
 function notifyMedication(medName) {
+  console.log("Trying to notify for:", medName);
+  console.log("Notification permission:", Notification.permission);
   if (typeof window !== "undefined" && Notification.permission === "granted") {
     new Notification(`Time to take your medication: ${medName}`);
   }
@@ -49,22 +57,43 @@ useEffect(() =>{
 useEffect(() => {
   if (!medications.length) return;
 
+  const interval = setInterval(() => {
+    const now = new Date();
+    medications.forEach((med) => {
+      if (!med.taken && med.time) {
+        const [hour, minute] = med.time.split(":").map(Number);
+        const medDate = new Date(now);
+        medDate.setHours(hour, minute, 0, 0);
+
+        const diff = Math.abs(medDate.getTime() - now.getTime());
+        console.log(
+          `Checking med: ${med.name}, medDate: ${medDate.toLocaleTimeString()}, now: ${now.toLocaleTimeString()}, diff(ms): ${diff}`
+        );
+
+        if (diff < 60 * 1000) {
+          console.log("Triggering notification for:", med.name);
+          notifyMedication(med.name);
+        }
+      }
+    });
+  }, 60000); // Check every 60 seconds
+
+  // Run once immediately as well
   const now = new Date();
   medications.forEach((med) => {
-    // Assume med.time is a string like "14:30" (24hr format)
     if (!med.taken && med.time) {
       const [hour, minute] = med.time.split(":").map(Number);
       const medDate = new Date(now);
       medDate.setHours(hour, minute, 0, 0);
 
-      // If the medication time is within the next 1 minute
-      if (
-        Math.abs(medDate.getTime() - now.getTime()) < 60 * 1000
-      ) {
+      const diff = Math.abs(medDate.getTime() - now.getTime());
+      if (diff < 60 * 1000) {
         notifyMedication(med.name);
       }
     }
   });
+
+  return () => clearInterval(interval);
 }, [medications]);
 
 

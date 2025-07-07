@@ -33,6 +33,7 @@ export async function POST(req) {
             time,
             instructions,
             userId: user.id,
+            taken: false,
         },
     });
     return NextResponse.json(medication, { status: 201 });

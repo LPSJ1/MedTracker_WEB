@@ -32,4 +32,5 @@ model Medication {
   instructions String?
   userId       Int
   user         user_table @relation(fields: [userId], references: [id])
+  taken        Boolean    @default(false)
 }
