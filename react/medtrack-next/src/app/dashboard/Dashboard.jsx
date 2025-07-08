@@ -126,47 +126,33 @@ useEffect(() => {
 
   return (
     
-    <div className={styles.container}>
-
-
-    <div style={{ position: "absolute", top: 10, right: 10 }}>
-      {status !== "authenticated" ? (
-        <button onClick={() => signIn()}>Sign In</button>
-      ) : (
-        <button onClick={() => signOut()}>Sign Out</button>
-      )}
-    </div>
-
-
-      <header className={styles.header}>
-        <div className={styles.logoWrapper}>
-          <img
-            src="/img_rsrcs/update2.png"
-            alt="Pill Icon"
-            width={48}
-            height={48}
-            className={styles.topLeftPill}
-          />
-          <span className={styles.logoText}>MedTrack</span>
+    <div className={styles.container} style={{ background: '#111827', minHeight: '100vh', width: '100vw' }}>
+      {/* Top bar with logo and auth buttons (not sticky) */}
+      <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.2rem 2.2rem 1.2rem 2.2rem', background: 'rgba(255,255,255,0.95)', borderBottom: '1.5px solid #b2ebf2', boxShadow: '0 2px 12px #b2ebf2' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <img src="/img_rsrcs/update2.png" alt="Pill Icon" width={40} height={40} className={styles.topLeftPill} />
+          <span className={styles.logoText} style={{ color: '#00cfcf', fontSize: '1.7rem', fontWeight: 700, fontFamily: 'Playfair Display,serif', textShadow: '0 2px 8px #b2ebf2' }}>MedTrack</span>
         </div>
-        <button
-          className={styles.btnAdd}
-          onClick={() => setShowModal(true)}
-          id="add-medication-btn"
-        >
-          + Add Medication
-        </button>
-      </header>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <button className={styles.btnAdd} style={{ background: '#00cfff', color: '#fff', fontWeight: 700, fontSize: '1.05rem', padding: '0.5rem 1.2rem', borderRadius: '10px', boxShadow: '0 2px 8px #b2ebf2', border: '1.5px solid #00cfff' }} onClick={() => setShowModal(true)} id="add-medication-btn">+ Add Medication</button>
+          {status !== "authenticated" ? (
+            <button style={{ background: '#ff3b3b', color: '#fff', border: 'none', borderRadius: '10px', padding: '0.5rem 1.2rem', fontWeight: 700, fontSize: '1.05rem', cursor: 'pointer', boxShadow: '0 2px 8px #ffeaea' }} onClick={() => signIn()}>Sign In</button>
+          ) : (
+            <button style={{ background: '#fff', color: '#ff3b3b', border: '1.5px solid #ff3b3b', borderRadius: '10px', padding: '0.5rem 1.2rem', fontWeight: 700, fontSize: '1.05rem', cursor: 'pointer', boxShadow: '0 2px 8px #ffeaea' }} onClick={() => signOut()}>Logout</button>
+          )}
+        </div>
+      </div>
 
       <main className={styles.mainContent}>
         <div className={styles.pageHeader}>
-          <h2>Medication Tracker</h2>
-          <p>keep track of your medications and never miss a dose</p>
+          <h2 style={{ color: '#232946', fontFamily: 'Playfair Display,serif', fontWeight: 800, fontSize: '2.2rem', textShadow: '0 2px 8px #b2ebf2', textAlign: 'center' }}>Medication Tracker</h2>
+          <p style={{ color: '#00796b', fontSize: '1.1rem', fontWeight: 500, textAlign: 'center' }}>Keep track of your medications and never miss a dose</p>
         </div>
 
-        <div className={styles.tabs}>
+        <div className={styles.tabs} style={{ background: 'none', border: 'none', justifyContent: 'center', marginBottom: 24, display: 'flex', gap: 16 }}>
           <button
             className={activeTab === "today" ? styles.tabButton : styles.tabLink}
+            style={activeTab === "today" ? { background: '#00cfff', color: '#fff', fontWeight: 700, boxShadow: '0 2px 8px #b2ebf2', border: '1.5px solid #00cfff' } : { background: '#e0f7fa', color: '#00897b', fontWeight: 700, border: '1.5px solid #00cfff' }}
             onClick={() => setActiveTab("today")}
             id="today-tab"
           >
@@ -174,20 +160,12 @@ useEffect(() => {
           </button>
           <button
             className={activeTab === "history" ? styles.tabButton : styles.tabLink}
+            style={activeTab === "history" ? { background: '#00cfff', color: '#fff', fontWeight: 700, boxShadow: '0 2px 8px #b2ebf2', border: '1.5px solid #00cfff' } : { background: '#e0f7fa', color: '#00897b', fontWeight: 700, border: '1.5px solid #00cfff' }}
             onClick={() => setActiveTab("history")}
             id="history-tab"
           >
             History
           </button>
-
-        {/*Notif button */}
-        
-        <button onClick={() => notifyMedication("Panadol")}>
-            Test Medication Notification
-        </button>
-
-
-
         </div>
 
         <div className={styles.content}>
@@ -216,8 +194,12 @@ useEffect(() => {
         />
       </div> */}
 
-      <footer className={styles.footerQuote}>
-        <p>Eat Healthy. Hydrate. Move. Sleep. Smile</p>
+      <footer className={styles.footerQuote} style={{ background: 'rgba(255,255,255,0.95)', color: '#00897b', marginTop: 40, boxShadow: '0 -2px 12px #b2ebf2', fontWeight: 700, fontSize: '1.1rem', textAlign: 'center' }}>
+        <p>
+          Eat Healthy. Hydrate. Move. Sleep. Smile.
+          <br />
+          <span style={{ fontWeight: 400, fontSize: '1rem', color: '#00796b' }}>Your health journey matters - stay consistent with your medications</span>
+        </p>
       </footer>
 
       {showModal && (
