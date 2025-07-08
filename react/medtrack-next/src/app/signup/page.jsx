@@ -66,7 +66,7 @@ export default function Signup() {
                     className={styles.topLeftPill}
                 />    
             </a>
-            <h1 className={styles.heading + "rainbow-glow"}>MedTrack</h1>
+            <h1 className={styles.heading}>MedTrack</h1>
             <div className={styles.formContainer}>
                 <h2>Sign Up</h2>
                 <form onSubmit={handleSubmit}>

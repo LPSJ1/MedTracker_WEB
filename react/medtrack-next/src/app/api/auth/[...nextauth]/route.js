@@ -11,10 +11,20 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
+
+        console.log("Credentials received:", credentials);
         // Use your DB to check user
         const user = await prisma.user_table.findUnique({
           where: { email: credentials.email }
         });
+
+        console.log("User from DB:", user);
+        if (user) {
+        console.log("DB user:", user)
+        console.log("Credentials pass:", credentials.password)
+      }
+
+
         if (user && user.password === credentials.password) {
           return { id: user.id, name: user.first_name, email: user.email };
         }

@@ -41,7 +41,7 @@ export default function Login() {
           {/*top left pill*/}
           <a href="/">
             <Image
-              src="/img_rscrs/update2.png"
+              src="/img_rsrcs/update2.png"
               alt="pill icon"
               width={100}
               height={100}

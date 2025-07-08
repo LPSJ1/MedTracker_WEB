@@ -20,7 +20,7 @@ export default function Home() {
       {/* Top left logo */}
       <div style={{ position: 'absolute', top: 18, left: 24, display: 'flex', alignItems: 'center', gap: 8 }}>
         <img src="/img_rsrcs/update2.png" alt="MedTracker logo" style={{ width: 28, height: 28, marginRight: 6 }} />
-        <span style={{ color: '#00cfcf', fontWeight: 700, fontSize: 18, fontFamily: 'Playfair Display,serif' }}>MedTracker</span>
+        <span style={{ color: '#00cfcf', fontWeight: 700, fontSize: 18, fontFamily: 'Playfair Display,serif' }}>MedTrack</span>
       </div>
 
       {/* Rainbow heading */}
