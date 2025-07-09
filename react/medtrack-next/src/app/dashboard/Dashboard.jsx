@@ -126,19 +126,8 @@ useEffect(() => {
   };
 
   return (
-    
-    <div className={styles.container}>
-
-
-    <div style={{ position: "absolute", top: 10, right: 10 }}>
-      {status !== "authenticated" ? (
-        <button onClick={() => signIn()}>Sign In</button>
-      ) : (
-        <button onClick={() => signOut()}>Sign Out</button>
-      )}
-    </div>
-
-
+    <div className={styles.containerDark}>
+      {/* Header: logo left, buttons right */}
       <header className={styles.header}>
         <div className={styles.logoWrapper}>
           <img
@@ -148,69 +137,75 @@ useEffect(() => {
             height={48}
             className={styles.topLeftPill}
           />
-          <span className={styles.logoText}>MedTrack</span>
+          <span className={styles.logoText}>MedTracker</span>
         </div>
-        <button
-          className={styles.btnAdd}
-          onClick={() => setShowModal(true)}
-          id="add-medication-btn"
-        >
-          + Add Medication
-        </button>
-      </header>
-
-      <main className={styles.mainContent}>
-        <div className={styles.pageHeader}>
-          <h2>Medication Tracker</h2>
-          <p>keep track of your medications and never miss a dose</p>
-        </div>
-
-        <div className={styles.tabs}>
+        <div className={styles.headerActions}>
           <button
-            className={activeTab === "today" ? styles.tabButton : styles.tabLink}
-            onClick={() => setActiveTab("today")}
-            id="today-tab"
+            className={styles.btnAdd}
+            onClick={() => setShowModal(true)}
+            id="add-medication-btn"
           >
-            Today's Schedule
+            + Add Medication
           </button>
-          <button
-            className={activeTab === "history" ? styles.tabButton : styles.tabLink}
-            onClick={() => setActiveTab("history")}
-            id="history-tab"
-          >
-            History
-          </button>
-
-        {/* Notif button */}
-        <button onClick={() => notifyMedication("Panadol")}> 
-          Test Medication Notification
-        </button>
-        </div>
-
-        <div className={styles.content}>
-          {activeTab === "today" ? (
-            <TodaySchedule
-              medications={medications}
-              onMarkAsTaken={(idx) => {
-                setMedications((meds) =>
-                  meds.map((med, i) =>
-                    i === idx ? { ...med, taken: true } : med
-                  )
-                );
-              }}
-            />
-          ) : (
-            <History medications={medications} />
+          {status === "authenticated" && (
+            <button
+              className={styles.btnLogout}
+              onClick={() => signOut()}
+            >
+              Logout
+            </button>
           )}
         </div>
+      </header>
+
+      {/* Tabs centered, pill-style, modern accent */}
+      <nav className={styles.tabsCentered} role="tablist" aria-label="Medication Views">
+        <button
+          className={activeTab === "today" ? styles.tabButtonActive : styles.tabButton}
+          onClick={() => setActiveTab("today")}
+          id="today-tab"
+          aria-selected={activeTab === "today"}
+          tabIndex={activeTab === "today" ? 0 : -1}
+          role="tab"
+        >
+          Today's Schedule
+        </button>
+        <button
+          className={activeTab === "history" ? styles.tabButtonActive : styles.tabButton}
+          onClick={() => setActiveTab("history")}
+          id="history-tab"
+          aria-selected={activeTab === "history"}
+          tabIndex={activeTab === "history" ? 0 : -1}
+          role="tab"
+        >
+          History
+        </button>
+      </nav>
+
+      {/* Main content area */}
+      <main className={styles.mainContent}>
+        {activeTab === "today" ? (
+          <TodaySchedule
+            medications={medications}
+            onMarkAsTaken={(idx) => {
+              setMedications((meds) =>
+                meds.map((med, i) =>
+                  i === idx ? { ...med, taken: true } : med
+                )
+              );
+            }}
+          />
+        ) : (
+          <History medications={medications} />
+        )}
       </main>
 
-
-
+      {/* Footer quote */}
       <footer className={styles.footerQuote}>
         <p>Eat Healthy. Hydrate. Move. Sleep. Smile</p>
       </footer>
 
+      {/* Add Medication Modal */}
       {showModal && (
         <AddMedicationModal
           onClose={() => setShowModal(false)}

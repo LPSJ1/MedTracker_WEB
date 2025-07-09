@@ -22,47 +22,49 @@ const getLabel = (status) => {
 
 export default function TodaySchedule({ medications, onMarkAsTaken }) {
     return (
-        <div className={styles.todayContainer}>
-            <h2>Today's Medications</h2>
-            <div className={styles.medicationGrid}>
+        <>
+            <h2 style={{marginBottom: '1.5rem', color: '#d1d5db', fontWeight: 800, fontSize: '2rem', textAlign: 'center'}}>Today's Medications</h2>
+            <div style={{width: '100%', maxWidth: 900, margin: '0 auto'}}>
                 {medications.length === 0 ? (
-                    <p>No medication scheduled for today.</p>
+                    <p style={{color: '#8ca0b3', fontSize: '1.15rem', textAlign: 'center'}}>No medication scheduled for today.</p>
                 ) : (
-                    medications.map((med, index) => {
-                        const status = getStatus(med);
-                        return (
-                            <div className={`${styles.medCard} ${styles[status]}`} key={index}>
-                                <h4>{med.name}</h4>
-                                <p>
-                                    <strong>Dosage:</strong> {med.dosage}
-                                </p>
-                                <p>
-                                    <strong>Time:</strong> {med.time}
-                                </p>
-                                <p>
-                                    <strong>Frequency:</strong> {med.frequency}
-                                </p>
-                                <p>
-                                    <strong>Instructions:</strong> {med.instructions || "-"}
-                                </p>
-                                <div className={styles.medFooter}>
-                                    <span className={`${styles.statusLabel} ${styles[status]}`}>
-                                        {getLabel(status)}
-                                    </span>
-                                    {status === "upcoming" && !med.taken && onMarkAsTaken && (
-                                        <button
-                                            className={styles.markTakenBtn}
-                                            onClick={() => onMarkAsTaken(index)}
-                                        >
-                                            Mark as Taken
-                                        </button>
-                                    )}
+                    <div className={styles.medicationGrid}>
+                        {medications.map((med, index) => {
+                            const status = getStatus(med);
+                            return (
+                                <div className={`${styles.medCard} ${styles[status]}`} key={index}>
+                                    <h4>{med.name}</h4>
+                                    <p>
+                                        <strong>Dosage:</strong> {med.dosage}
+                                    </p>
+                                    <p>
+                                        <strong>Time:</strong> {med.time}
+                                    </p>
+                                    <p>
+                                        <strong>Frequency:</strong> {med.frequency}
+                                    </p>
+                                    <p>
+                                        <strong>Instructions:</strong> {med.instructions || "-"}
+                                    </p>
+                                    <div className={styles.medFooter}>
+                                        <span className={`${styles.statusLabel} ${styles[status]}`}>
+                                            {getLabel(status)}
+                                        </span>
+                                        {status === "upcoming" && !med.taken && onMarkAsTaken && (
+                                            <button
+                                                className={styles.markTakenBtn}
+                                                onClick={() => onMarkAsTaken(index)}
+                                            >
+                                                Mark as Taken
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })
+                            );
+                        })}
+                    </div>
                 )}
             </div>
-        </div>
+        </>
     );
 }

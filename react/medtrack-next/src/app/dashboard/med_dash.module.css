@@ -1,7 +1,119 @@
+/* Logout button style for dashboard */
+.btnLogout {
+  background: #18181b;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 18px;
+  font-size: 1.15rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 1;
+  margin-left: 1rem;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.btnLogout:hover {
+  background: #232946;
+  color: #fff;
+}
+/* Medication grid and card styles for dark theme */
+.medicationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.medCard {
+  background: linear-gradient(135deg, #232946 60%, #22223b 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1.5px solid #232946;
+  position: relative;
+  min-height: 180px;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.medCard:hover {
+  box-shadow: 0 4px 32px 0 rgba(20,184,166,0.18);
+  border: 1.5px solid #0d9488;
+}
+.medCard h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #14b8a6;
+  margin-bottom: 0.2rem;
+}
+.medCard p {
+  color: #b6c2d1;
+  font-size: 1.05rem;
+  margin: 0.1rem 0;
+}
+.medFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+}
+.statusLabel {
+  font-size: 0.98rem;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.25rem 0.9rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
+}
+.taken {
+  background: linear-gradient(90deg, #0d9488 60%, #14b8a6 100%) !important;
+  color: #fff !important;
+}
+.missed {
+  background: linear-gradient(90deg, #b91c1c 60%, #f87171 100%) !important;
+  color: #fff !important;
+}
+.upcoming {
+  background: linear-gradient(90deg, #334155 60%, #0ea5e9 100%) !important;
+  color: #fff !important;
+}
+.markTakenBtn {
+  background: #18181b;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s;
+}
+.markTakenBtn:hover {
+  background: #232946;
+  color: #fff;
+}
+/* Centered Tabs */
+.tabsCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
 /* Main container */
-.container {
+.containerDark {
   min-height: 100vh;
-  background: #f8f9fa;
+  background: #fff;
   display: flex;
   flex-direction: column;
 }
@@ -12,9 +124,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem 2rem 1rem 2rem;
-  border-bottom: 1px solid #e5e7eb;
-  background: #fff;
-  color: #222
+  border-bottom: 1px solid #232946;
+  background: rgba(24,24,27,0.95);
+  color: #e5e7eb;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+  backdrop-filter: blur(4px);
 }
 
 .logoWrapper {
@@ -35,27 +149,27 @@
 .logoText {
   font-size: 2rem;
   font-weight: 700;
-  color: #222;
+  color: #0d9488;
   font-family: 'Playfair Display', serif;
+  letter-spacing: 0.01em;
 }
 
 .btnAdd {
-  background-color: #95cece;
-  color: #222;
+  background: linear-gradient(90deg, #0d9488 0%, #14b8a6 100%);
+  color: #fff;
   border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 20px;
-  font-size: 1.2rem;
-  font-family: "Bodoni Moda", serif;
-  font-style: italic;
-  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 18px;
+  font-size: 1.15rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
   cursor: pointer;
   opacity: 1;
   transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
 }
-
 .btnAdd:hover {
-  background-color: #7dbcbc;
+  background: linear-gradient(90deg, #14b8a6 0%, #0d9488 100%);
   color: #fff;
 }
 
@@ -78,7 +192,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   margin-top: 2rem;
+  width: 100vw;
+  min-height: 420px;
+  max-width: 100vw;
+  padding: 0 0 2rem 0;
+}
+
+/* Medications section (middle) */
+.medicationsSection {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 320px;
+  margin-bottom: 2rem;
+  border: 1.5px solid #e5e7eb;
 }
 
 .pageHeader {
@@ -113,28 +249,31 @@
   margin-bottom: 1.5rem;
 }
 
+
 .tabButton,
 .tabLink {
   background-color: transparent;
   border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 20px;
-  font-size: 1.2rem;
-  font-family: "Bodoni Moda", serif;
-  font-style: italic;
-  font-weight: 500;
-  color: #555;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 0.5rem 1.3rem;
+  border-radius: 16px 16px 0 0;
+  font-size: 1.1rem;
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+  font-weight: 700;
+  color: #0d9488;
+  transition: background 0.2s, color 0.2s;
   cursor: pointer;
+  margin-bottom: -2px;
 }
-
-.tabButton {
-  background-color: #95cece;
-  color: white;
+.tabButtonActive {
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
 }
-
-.tabLink:hover {
-  background-color: #e5e7eb;
+.tabButton:hover, .tabLink:hover {
+  background-color: #e0e7ef;
+  color: #0d9488;
 }
 
 /* Content area */
@@ -146,30 +285,36 @@
 
 /* Footer */
 .footerQuote {
-  background-color: #d6f0f0;
+  background: linear-gradient(90deg, #18181b 0%, #232946 100%);
   text-align: center;
-  padding: 1rem 0;
-  font-family: "Playfair Display", serif;
-  font-size: 1.25rem;
-  font-weight: 500;
+  padding: 1.2rem 0 1.1rem 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
   margin-top: 2rem;
-  width: 100%;
-  color:#222
+  width: 100vw;
+  color: #e5e7eb;
+  letter-spacing: 0.01em;
+  border-top: 1.5px solid #232946;
+  box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.12);
 }
 
 
 .content,
+
 .todayContainer,
 .historyContainer {
-  color: #222;
+  color: #e5e7eb;
 }
+
 
 .todayContainer h2,
 .historyContainer h2 {
-  color: #222;
+  color: #e5e7eb;
 }
+
 
 .todayContainer p,
 .historyContainer p {
-  color: #555;
+  color: #8ca0b3;
 }
