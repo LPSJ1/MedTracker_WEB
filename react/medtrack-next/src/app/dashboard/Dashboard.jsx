@@ -24,8 +24,9 @@ export default function Dashboard() {
   }, [medications]);
 
 
-{/*Browser notifications*/}
-useEffect ( () => {
+
+// Browser notifications
+useEffect(() => {
   if (typeof window !== "undefined" && "Notification" in window) {
     if (Notification.permission === "default") {
       Notification.requestPermission();
@@ -34,7 +35,7 @@ useEffect ( () => {
 }, []);
 
 
-{/*To call notification*/}
+// To call notification
 function notifyMedication(medName) {
   console.log("Trying to notify for:", medName);
   console.log("Notification permission:", Notification.permission);
@@ -180,14 +181,10 @@ useEffect(() => {
             History
           </button>
 
-        {/*Notif button */}
-        
-        <button onClick={() => notifyMedication("Panadol")}>
-            Test Medication Notification
+        {/* Notif button */}
+        <button onClick={() => notifyMedication("Panadol")}> 
+          Test Medication Notification
         </button>
-
-
-
         </div>
 
         <div className={styles.content}>
@@ -208,13 +205,7 @@ useEffect(() => {
         </div>
       </main>
 
-     {/* <div className={styles.medSticker}>
-        <img
-          className={styles.sticker}
-          src="/img_rsrcs/sticker.jpeg"
-          alt="sticker"
-        />
-      </div> */}
+
 
       <footer className={styles.footerQuote}>
         <p>Eat Healthy. Hydrate. Move. Sleep. Smile</p>
