@@ -45,7 +45,7 @@ o	Special instructions (e.g., "take after food")
     
 •	Log of when doses were marked as taken
 
-•	Helps with doctor visits or self-monitoring
+•	Helps with doctor visits or self-monitoring(Its possible application)
 
 
 
